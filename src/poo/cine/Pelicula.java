@@ -97,7 +97,7 @@ public class Pelicula {
      */
     public boolean estaEnCartelera() {
         // TODO completar
-        return true;
+        return !(funciones.isEmpty());
     }
     
     /**
@@ -107,8 +107,15 @@ public class Pelicula {
      * @return 
      */
     public String mostrarFuncionesHabilitadas() {
-        // TODO implementar
-        return null;
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append("Funciones disponibles:/n ");
+        
+        for (Funcion e: funciones){
+       
+        sb.append(e).append("/n");
+        }  
+        return sb.toString();
     }
     
     /**

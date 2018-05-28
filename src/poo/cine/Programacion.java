@@ -41,7 +41,7 @@ public class Programacion {
         this.fechaFin = fechaFin;
         this.fechaHoraCreada = fechaHoraCreada;
         this.funciones = funciones;
-        this.funciones = new ArrayList<>();
+       
     }
       
     /**
@@ -85,7 +85,7 @@ public class Programacion {
         // comparamos contra la fecha de inicio y fin de la programacion
         // utilizamos los operadores <= y >= para asegurarnos de que
         // ambos extremos de fecha (inicio y fin) sean incluídos en el chequeo
-        return inicio.compareTo(cuando) <= 0 && fin.compareTo(cuando) >= 0;
+        return (inicio.compareTo(cuando) <= 0 )&& (fin.compareTo(cuando) >= 0);
     }
   
     // A continuación se listan todos los métodos 
