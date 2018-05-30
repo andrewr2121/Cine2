@@ -6,10 +6,11 @@
 package poo.cine;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Iterator;
 /**
  *
  * @author Candelaria
@@ -51,7 +52,12 @@ public class Programacion {
      * @return 
      */
     public boolean estaCompleta () {
-        return false;
+        TreeSet st=new TreeSet();
+        for(Funcion f:funciones){
+            
+            st.add(f.getDiaSemana());
+        }
+        return (st.size()==7);
     }
     
     /**
@@ -130,7 +136,21 @@ public class Programacion {
      */
     public String mostrarProgramacion() {
         // TODO recorrer funciones y mostrar sus datos
-        return "Falta implementar";
+        //estaVigente();
+        StringBuilder sb= new StringBuilder();
+        
+        Iterator<Funcion> funcionesIt=funciones.iterator();
+        while(funcionesIt.hasNext()){
+            
+            Funcion f=funcionesIt.next();
+            
+            sb.append(f).append("/n");
+            
+        }
+        
+        //setFechaInicio(Date FechaInicio)&&setFechaFin(Date FechaFin)
+        
+        return sb.toString();
     }
 
     @Override
