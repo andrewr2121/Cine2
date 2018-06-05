@@ -5,6 +5,7 @@
  */
 package poo.cine.controller;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -15,7 +16,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  * @author joaquinleonelrobles
  */
 public class Main {
-   private SessionFactory sessionFactory = null;
+   static private SessionFactory sessionFactory = null;
     
     public static void main (String[] args) {
         
@@ -35,8 +36,21 @@ public class Main {
             StandardServiceRegistryBuilder.destroy( registry );
 	}
         
-        //new GestorPelicula(sessionFactory).run();
+        new GestorPelicula(sessionFactory).run();
         
     }
     
+     /*void agregargenero(String s){
+     
+     Genero g = new Genero();
+     g.setname(s);
+     
+     Session se = sessionFactory.openSession();
+    se.beginTransaction();
+    se.save(g);
+    se.getTransaction().commit();
+    se.close();
+    
+     }
+    */
 }
