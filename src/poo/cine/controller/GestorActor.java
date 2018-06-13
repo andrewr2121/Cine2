@@ -19,14 +19,8 @@ import poo.cine.Pelicula;
 import poo.cine.Personaje;
 import poo.cine.Rol;
 import poo.cine.Sexo;
-import poo.cine.dao.CalificacionesDao;
-import poo.cine.dao.CalificacionesDaoHibernateImpl;
-import poo.cine.dao.GenerosDao;
-import poo.cine.dao.GenerosDaoHibernateImpl;
-import poo.cine.dao.PaisesDao;
-import poo.cine.dao.PaisesDaoHibernateImpl;
-import poo.cine.dao.PeliculasDao;
-import poo.cine.dao.PeliculasDaoHibernateImpl;
+import poo.cine.dao.ActorDao;
+import poo.cine.dao.ActorDaoHibernateImpl;
 import poo.cine.ui.PantallaAdministracionActores;
 
 /**
@@ -47,26 +41,24 @@ public class GestorActor {
  */
   
     
-    private final ActorDao generosDao;
+    private final ActorDao actorDao;
 
 
     public GestorActor(SessionFactory sessionFactory) {
                
         // creamos las instancias de los objetos de acceso a datos
-        this.ActorDao = new ActorDaoHibernateImpl(sessionFactory);
+        this.actorDao = new ActorDaoHibernateImpl(sessionFactory);
 
     }
     
     public void run () {
-        // obtenemos los objetos para completar las listas de seleccion
-        List<Actor> actores = ActorDao.obtenerTodos();
-        
+                        
         // creamos una instancia del formulario y lo mostramos
-        PantallaAdministracionActores panelactores = new PantallaAdministracionActores(actores, calificaciones, paises, this);
+        PantallaAdministracionActores panelactores = new PantallaAdministracionActores(this);
         panelactores.setVisible(true);
     }
     
-    public List<Personaje> obtenerElenco () {
+    /*public List<Personaje> obtenerElenco () {
         // mockup del resultado de la llamada al caso de uso "Registrar Elenco"
         Sexo masculino = new Sexo("Masculino");
         Actor ricardo = new Actor(false, "Darín", "Ricardo", masculino);
@@ -77,14 +69,14 @@ public class GestorActor {
         
         return personajes;
     }
+*/
+    public Actor buscarActorPorNombre(String nombre) {
+        return actorDao.buscarPorNombre(nombre);
+    }
+    
+    public void guardarActor(Actor actor) {
+        actorDao.guardar(actor);
+    }
+}
+    
 
-    public Pelicula buscarPeliculaPorNombre(String nombre) {
-        return peliculasDao.buscarPorNombre(nombre);
-    }
-    
-    public void guardarPelicula (Pelicula pelicula) {
-        peliculasDao.guardar(pelicula);
-    }
-}
-    
-}

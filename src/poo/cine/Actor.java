@@ -11,10 +11,12 @@ package poo.cine;
  */
 public class Actor {
     
+    private Integer id;
     private boolean animado;
     private String apellido;
     private String nombre;
-    private Sexo sexo;
+    
+    //private Sexo sexo;
 
     /**
      * Constructor por Defecto
@@ -30,11 +32,11 @@ public class Actor {
      * @param nombre
      * @param sexo 
      */
-    public Actor(boolean animado, String apellido, String nombre, Sexo sexo) {
+    public Actor(boolean animado, String apellido, String nombre) {
         this.animado = animado;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.sexo = sexo;
+      //  this.sexo = sexo;
     }
     
     //A continuación se listan todos los métodos de seteo de cada atributo de la clase.
@@ -62,13 +64,13 @@ public class Actor {
         this.nombre = nombre;
     }
 
-    public Sexo getSexo() {
-        return sexo;
-    }
+    //public Sexo getSexo() {
+    //    return sexo;
+    //}
 
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
-    }
+    //public void setSexo(Sexo sexo) {
+    //    this.sexo = sexo;
+    //}
 
     @Override
     public String toString() {

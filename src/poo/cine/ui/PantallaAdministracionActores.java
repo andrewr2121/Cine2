@@ -8,11 +8,7 @@ import poo.cine.controller.GestorPelicula;
 import java.awt.event.WindowEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
-import poo.cine.Calificacion;
-import poo.cine.Genero;
-import poo.cine.PaisDeOrigen;
-import poo.cine.Pelicula;
-import poo.cine.Personaje;
+import poo.cine.Actor;
 
 
 /**
@@ -98,6 +94,12 @@ public class PantallaAdministracionActores extends javax.swing.JFrame {
         jLabel2.setText("Nombre y Apellido");
 
         jLabel4.setText("Sexo");
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("Masculino");
@@ -220,6 +222,10 @@ public class PantallaAdministracionActores extends javax.swing.JFrame {
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="poo.cine.Actor" table="Actor">
+          <id name="id" column="id_actor">
+          <generator class="assigned" />
+      </id>
+      <property name="nombre" column="nombre"/>
+      <property name="apellido" column="apellido" />
+      <property name="animado" Column="animado"/>
+  </class>
+</hibernate-mapping>

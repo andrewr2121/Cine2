@@ -15,5 +15,6 @@
     <mapping resource="resources/hbm/Calificacion.hbm.xml"/>
     <mapping resource="resources/hbm/PaisDeOrigen.hbm.xml"/>
     <mapping resource="resources/hbm/Pelicula.hbm.xml"/>
+    <mapping resource="resources/hbm/Actor.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

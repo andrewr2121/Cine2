@@ -68,12 +68,12 @@ public class GestorPelicula {
     
     public List<Personaje> obtenerElenco () {
         // mockup del resultado de la llamada al caso de uso "Registrar Elenco"
-        Sexo masculino = new Sexo("Masculino");
-        Actor ricardo = new Actor(false, "Darín", "Ricardo", masculino);
-        Rol protagonista = new Rol("Protagonista");
+       // Sexo masculino = new Sexo("Masculino");
+        //Actor ricardo = new Actor(false, "Darín", "Ricardo", masculino);
+        //Rol protagonista = new Rol("Protagonista");
         
-        List<Personaje> personajes = new ArrayList<>();                
-        personajes.add(new Personaje("Bombita", ricardo, protagonista));
+        //List<Personaje> personajes = new ArrayList<>();                
+        //personajes.add(new Personaje("Bombita", ricardo, protagonista));
         
         return personajes;
     }
