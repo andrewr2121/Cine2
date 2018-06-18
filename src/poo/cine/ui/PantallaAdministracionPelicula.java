@@ -209,6 +209,11 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
 
         buttonGroup5.add(radioSiDisponible);
         radioSiDisponible.setText("Sí");
+        radioSiDisponible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioSiDisponibleActionPerformed(evt);
+            }
+        });
 
         buttonGroup5.add(radioNoDisponible);
         radioNoDisponible.setSelected(true);
@@ -375,6 +380,10 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Se ha registrado el elenco: " + personajes.get(0));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void radioSiDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSiDisponibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioSiDisponibleActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

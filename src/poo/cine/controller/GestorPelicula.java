@@ -28,6 +28,7 @@ import poo.cine.dao.PaisesDaoHibernateImpl;
 import poo.cine.dao.PeliculasDao;
 import poo.cine.dao.PeliculasDaoHibernateImpl;
 import poo.cine.ui.PantallaAdministracionPelicula;
+import poo.cine.controller.GestorActor;
 
 /**
  *
@@ -41,6 +42,8 @@ public class GestorPelicula {
     private final CalificacionesDao calificacionesDao;
     private final PaisesDao paisesDao;
     private final PeliculasDao peliculasDao;
+    private 
+    
 
     public GestorPelicula(SessionFactory sessionFactory) {
         Calendar ahora = Calendar.getInstance();
@@ -66,7 +69,12 @@ public class GestorPelicula {
         panel.setVisible(true);
     }
     
-    public List<Personaje> obtenerElenco () {
+    public void gestorActor(){
+     SessionFactory sesionActor = this.sessionFactory;
+      new GestorActor().run();
+    }
+    
+    //public List<Personaje> obtenerElenco () {
         // mockup del resultado de la llamada al caso de uso "Registrar Elenco"
        // Sexo masculino = new Sexo("Masculino");
         //Actor ricardo = new Actor(false, "Darín", "Ricardo", masculino);
@@ -75,8 +83,8 @@ public class GestorPelicula {
         //List<Personaje> personajes = new ArrayList<>();                
         //personajes.add(new Personaje("Bombita", ricardo, protagonista));
         
-        return personajes;
-    }
+     //   return personajes;
+    //}
 
     public Pelicula buscarPeliculaPorNombre(String nombre) {
         return peliculasDao.buscarPorNombre(nombre);

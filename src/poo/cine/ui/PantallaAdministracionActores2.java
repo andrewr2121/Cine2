@@ -5,6 +5,13 @@
  */
 package poo.cine.ui;
 
+import poo.cine.controller.GestorActor;
+import javax.swing.JOptionPane;
+import poo.cine.Calificacion;
+import poo.cine.Genero;
+import poo.cine.PaisDeOrigen;
+import poo.cine.Actor;
+
 /**
  *
  * @author Alumno
@@ -14,7 +21,11 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
     /**
      * Creates new form PantallaAdministracionActores2
      */
-    public PantallaAdministracionActores2() {
+    private final GestorActor gestor;
+    
+    public PantallaAdministracionActores2(GestorActor gestor) {
+        this.gestor = gestor;
+    
         initComponents();
     }
 
@@ -27,33 +38,34 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        Sexo = new javax.swing.ButtonGroup();
+        Animado = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
-        nombre = new javax.swing.JTextPane();
+        txtNombre = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        apellido = new javax.swing.JTextPane();
+        txtApellido = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        radioSiAnimado = new javax.swing.JRadioButton();
+        radioNoAnimado = new javax.swing.JRadioButton();
         guardar = new javax.swing.JButton();
         salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(nombre);
+        jScrollPane1.setViewportView(txtNombre);
 
         jLabel1.setText("Nombre");
 
-        jScrollPane2.setViewportView(apellido);
+        jScrollPane2.setViewportView(txtApellido);
 
         jLabel2.setText("Apellido");
 
+        Sexo.add(jRadioButton1);
         jRadioButton1.setSelected(true);
         jRadioButton1.setText("Masculino");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,22 +76,25 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
 
         jLabel3.setText("Sexo");
 
+        Sexo.add(jRadioButton2);
         jRadioButton2.setText("Femenino");
 
         jLabel4.setText("Animado");
 
-        jRadioButton3.setSelected(true);
-        jRadioButton3.setText("Si");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        Animado.add(radioSiAnimado);
+        radioSiAnimado.setSelected(true);
+        radioSiAnimado.setText("Si");
+        radioSiAnimado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                radioSiAnimadoActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setText("No");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        Animado.add(radioNoAnimado);
+        radioNoAnimado.setText("No");
+        radioNoAnimado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                radioNoAnimadoActionPerformed(evt);
             }
         });
 
@@ -120,9 +135,9 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addGap(18, 18, 18)
-                            .addComponent(jRadioButton3)
+                            .addComponent(radioSiAnimado)
                             .addGap(18, 18, 18)
-                            .addComponent(jRadioButton4))))
+                            .addComponent(radioNoAnimado))))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,9 +158,9 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
                     .addComponent(jRadioButton2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
+                    .addComponent(radioSiAnimado)
                     .addComponent(jLabel4)
-                    .addComponent(jRadioButton4))
+                    .addComponent(radioNoAnimado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
@@ -160,18 +175,43 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void radioSiAnimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSiAnimadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_radioSiAnimadoActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void radioNoAnimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioNoAnimadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_radioNoAnimadoActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_guardarActionPerformed
+         // validamos los datos minimos
+        if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty()) 
+        {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+        }
+       
+        else
+        if (gestor.buscarActorPorNombre(txtNombre.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "Ya existe una Película con ese nombre");
+        }
+        
+        else {
+            // obtenemos los datos ingresados por el usuario
+            String nombre = txtNombre.getText();
+            String apellido=txtApellido.getText();
+            boolean animado=radioSiAnimado.isSelected();
+                   
+            // creamos la instancia de una nueva pelicula
+            Actor nuevo = new Actor( animado,apellido, nombre);
+            
 
+            // delegamos al gestor 
+            gestor.guardarActor(nuevo);
+
+            // notificamos al usuario
+            JOptionPane.showMessageDialog(null, "La Película " + nuevo + "ha sido agregada con éxito");
+    }//GEN-LAST:event_guardarActionPerformed
+}
     /**
      * @param args the command line arguments
      */
@@ -204,13 +244,12 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
             public void run() {
                 new PantallaAdministracionActores2().setVisible(true);
             }
-        });
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextPane apellido;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup Animado;
+    private javax.swing.ButtonGroup Sexo;
     private javax.swing.JButton guardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -218,11 +257,12 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane nombre;
+    private javax.swing.JRadioButton radioNoAnimado;
+    private javax.swing.JRadioButton radioSiAnimado;
     private javax.swing.JButton salir;
+    private javax.swing.JTextPane txtApellido;
+    private javax.swing.JTextPane txtNombre;
     // End of variables declaration//GEN-END:variables
 }
