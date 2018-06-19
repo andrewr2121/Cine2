@@ -42,7 +42,7 @@ public class GestorPelicula {
     private final CalificacionesDao calificacionesDao;
     private final PaisesDao paisesDao;
     private final PeliculasDao peliculasDao;
-    private 
+    private final GestorActor gactor;
     
 
     public GestorPelicula(SessionFactory sessionFactory) {
@@ -56,6 +56,7 @@ public class GestorPelicula {
         this.calificacionesDao = new CalificacionesDaoHibernateImpl(sessionFactory);
         this.paisesDao = new PaisesDaoHibernateImpl(sessionFactory);
         this.peliculasDao = new PeliculasDaoHibernateImpl(sessionFactory);
+        this.gactor = new GestorActor(sessionFactory);
     }
     
     public void run () {
@@ -70,8 +71,7 @@ public class GestorPelicula {
     }
     
     public void gestorActor(){
-     SessionFactory sesionActor = this.sessionFactory;
-      new GestorActor().run();
+     gactor.run();
     }
     
     //public List<Personaje> obtenerElenco () {

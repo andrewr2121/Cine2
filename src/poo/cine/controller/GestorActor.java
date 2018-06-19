@@ -21,7 +21,7 @@ import poo.cine.Rol;
 import poo.cine.Sexo;
 import poo.cine.dao.ActorDao;
 import poo.cine.dao.ActorDaoHibernateImpl;
-import poo.cine.ui.PantallaAdministracionActores;
+import poo.cine.ui.PantallaAdministracionActores2;
 
 /**
  *
@@ -54,7 +54,7 @@ public class GestorActor {
     public void run () {
                         
         // creamos una instancia del formulario y lo mostramos
-        PantallaAdministracionActores panelactores = new PantallaAdministracionActores(this);
+        PantallaAdministracionActores2 panelactores = new PantallaAdministracionActores2(this);
         panelactores.setVisible(true);
     }
     

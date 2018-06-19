@@ -5,6 +5,7 @@
  */
 package poo.cine.ui;
 
+import java.awt.event.WindowEvent;
 import poo.cine.controller.GestorActor;
 import javax.swing.JOptionPane;
 import poo.cine.Calificacion;
@@ -55,7 +56,7 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
         guardar = new javax.swing.JButton();
         salir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jScrollPane1.setViewportView(txtNombre);
 
@@ -106,6 +107,11 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
         });
 
         salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,7 +190,7 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
     }//GEN-LAST:event_radioNoAnimadoActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-         // validamos los datos minimos
+       
         if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty()) 
         {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
@@ -192,7 +198,7 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
        
         else
         if (gestor.buscarActorPorNombre(txtNombre.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Ya existe una Película con ese nombre");
+            JOptionPane.showMessageDialog(null, "Ya existe una Actor con ese nombre");
         }
         
         else {
@@ -202,25 +208,30 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
             boolean animado=radioSiAnimado.isSelected();
                    
             // creamos la instancia de una nueva pelicula
-            Actor nuevo = new Actor( animado,apellido, nombre);
+            Actor nuevo = new Actor(animado,apellido, nombre);
             
 
             // delegamos al gestor 
             gestor.guardarActor(nuevo);
 
             // notificamos al usuario
-            JOptionPane.showMessageDialog(null, "La Película " + nuevo + "ha sido agregada con éxito");
+            JOptionPane.showMessageDialog(null, "El Actor" + nuevo + "ha sido agregada con éxito");
     }//GEN-LAST:event_guardarActionPerformed
-}
+    
+    }
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_salirActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+    /*public static void main(String args[]) {
+         Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -240,13 +251,13 @@ public class PantallaAdministracionActores2 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PantallaAdministracionActores2().setVisible(true);
             }
         }
-    }
-
+      }
+*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Animado;
     private javax.swing.ButtonGroup Sexo;

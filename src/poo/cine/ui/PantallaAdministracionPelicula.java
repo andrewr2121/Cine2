@@ -15,6 +15,7 @@ import poo.cine.PaisDeOrigen;
 import poo.cine.Pelicula;
 import poo.cine.Personaje;
 
+
 /**
  *
  * @author joaquinleonelrobles
@@ -201,7 +202,7 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                gestorActorActionPerformed(evt);
             }
         });
 
@@ -374,12 +375,12 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void gestorActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorActorActionPerformed
         // realizamos un mockup de la llamada al caso de uso "Registrar Elenco"
-        personajes = gestor.obtenerElenco();
-        
-        JOptionPane.showMessageDialog(null, "Se ha registrado el elenco: " + personajes.get(0));
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //personajes = gestor.obtenerElenco();
+        //JOptionPane.showMessageDialog(null, "Se ha registrado el elenco: " + personajes.get(0));
+        gestor.gestorActor();
+    }//GEN-LAST:event_gestorActorActionPerformed
 
     private void radioSiDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSiDisponibleActionPerformed
         // TODO add your handling code here:
