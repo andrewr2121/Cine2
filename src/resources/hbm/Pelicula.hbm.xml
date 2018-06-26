@@ -13,6 +13,7 @@
       <property name="fechaIngreso" column="fecha_ingreso" type="java.util.Date" />
       <property name="tituloOriginal" column="titulo_original" />
       
+      <many-to-one name="actores" class="poo.cine.Actor" column="id_actor"></many-to-one>
       <many-to-one name="paisDeOrigen" class="poo.cine.PaisDeOrigen" column="id_pais_de_origen"></many-to-one>
       <many-to-one name="genero" class="poo.cine.Genero" column="id_genero"></many-to-one>
       <many-to-one name="calificacion" class="poo.cine.Calificacion" column="id_calificacion"></many-to-one>

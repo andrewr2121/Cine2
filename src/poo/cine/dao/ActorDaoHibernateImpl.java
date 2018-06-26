@@ -5,12 +5,14 @@
  */
 package poo.cine.dao;
 
+import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import poo.cine.Actor;
+
 
 
 /**
@@ -49,6 +51,15 @@ public class ActorDaoHibernateImpl implements ActorDao {
         session.save(actor);
         session.getTransaction().commit();
         session.close();
+    }
+    
+      @Override
+    public List<Actor> obtenerTodos() {
+        Session session = sessionFactory.openSession();
+        List<Actor> retorno = session.createQuery("from Actor").list();
+        session.close();
+        
+        return retorno;
     }
     
 }
